@@ -7,9 +7,9 @@
     <span class="author">Author: <%= post.user.name %></span>
     <% else %>
       <span class="author">Author: <div class="red">[hidden from non-members]</div></span>
-    <% end %>
-    <%= post.title %><br>
-    <%= post.body %>
+    <% end %><br>
+    <span> Title: <%= post.title %></span><br>
+    <span>Text: <%= post.body %> </span>
     </li>
   <% end %>
 </ul>

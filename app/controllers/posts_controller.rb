@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   include SessionsHelper
   # before_action :get_user,   only: [:new, :create]
-  before_action :signed_in_users,   only: [:new, :create]
+  before_action :signed_in_users, only: %i[new create]
   def index
     @posts = Post.all
-    
   end
 
   def new
@@ -18,13 +19,13 @@ class PostsController < ApplicationController
     if @post.save!
       redirect_to posts_url
     else
-      flash[:danger] = "You need to sign in"
+      flash[:danger] = 'You need to sign in'
       render sign_in_path
     end
-    
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :body)
   end

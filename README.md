@@ -24,11 +24,15 @@ after that run the server from terminal in the root directory of the project
 ```
 $ rails server
 ```
-you can now create a new post after signing in and go to your local host
+you can now create a new post after signing in. Just go to your local host
 
- http://localhost:3000/posts/new
+ http://localhost:3000/
 
-to see all your posts go to  http://localhost:3000/posts
+After that click Sign In and sign in as a user from the db/seed.rb
+
+Now on the account link you can see the create post link. You can click and create as many posts as you want.
+
+to see all the posts go to  http://localhost:3000/posts .
 
 
 # Authors
