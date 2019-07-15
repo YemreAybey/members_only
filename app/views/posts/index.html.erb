@@ -1,0 +1,14 @@
+<h1>All Posts</h1>
+
+<ul id="post">
+  <% @posts.each do |post| %>
+    <li>
+    <% unless @user.nil? %>
+       <% user = User.find(post.user_id) %>
+       <h3> <%= user.name %> </h3>
+    <% end %>
+    <%= post.title %><br>
+    <%= post.body %>
+    </li>
+  <% end %>
+</ul>
