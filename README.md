@@ -1,8 +1,8 @@
 # Forms 
 # Ruby on Rails Members Only application
 
-This is part of the Forms Project in The Odin Project’s Ruby on Rails Curriculum. For more information [Odin-Rails-Forms]
-(https://www.theodinproject.com/courses/ruby-on-rails/lessons/forms)
+This is part of the Authentication Project in The Odin Project’s Ruby on Rails Curriculum. For more information [Odin-Rails-Authentication]
+(https://www.theodinproject.com/courses/ruby-on-rails/lessons/authentication)
 
 ## Getting started
 
@@ -16,6 +16,7 @@ Next, migrate the database:
 
 ```
 $ rails db:migrate
+$ rails db:seed
 ```
 
 after that run the server from terminal in the root directory of the project
@@ -23,10 +24,11 @@ after that run the server from terminal in the root directory of the project
 ```
 $ rails server
 ```
-you can now create user or update it by openning your localhost
+you can now create a new post after signing in and go to your local host
 
- http://localhost:3000/users/new
- http://localhost:3000/users/1/edit use this link after creating your first user!
+ http://localhost:3000/posts/new
+
+to see all your posts go to  http://localhost:3000/posts
 
 
 # Authors
