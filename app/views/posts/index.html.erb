@@ -3,9 +3,10 @@
 <ul id="post">
   <% @posts.each do |post| %>
     <li>
-    <% unless @user.nil? %>
-       <% user = User.find(post.user_id) %>
-       <h3> <%= user.name %> </h3>
+    <% if signed_in? %>
+    <span class="author">Author: <%= post.user.name %></span>
+    <% else %>
+      <span class="author">Author: <div class="red">[hidden from non-members]</div></span>
     <% end %>
     <%= post.title %><br>
     <%= post.body %>

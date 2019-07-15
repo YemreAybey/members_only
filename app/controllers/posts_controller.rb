@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   include SessionsHelper
-  before_action :signed_in?,   only: [:new, :create]
-  #before_action :signed_in_user,   only: [:new, :create]
+  # before_action :get_user,   only: [:new, :create]
+  before_action :signed_in_users,   only: [:new, :create]
   def index
     @posts = Post.all
+    
   end
 
   def new
@@ -12,10 +13,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    user = User.find_by(email: params[:email])
-    @post.user_id = user.id
+    # user = User.find_by(remember_digest: User.digest(cookies.permanent[:remember_token]))
+    @post.user_id = session[:user_id]
     if @post.save!
-      redirect_to root_url
+      redirect_to posts_url
     else
       flash[:danger] = "You need to sign in"
       render sign_in_path
@@ -23,16 +24,7 @@ class PostsController < ApplicationController
     
   end
 
-  def get_user
-    @user = User.find_by(remember_digest: User.digest(cookies.permanent[:remember_token]))
-  end
-
-  def signed_in_user
-    if @user.nil?
-      redirect_to root_url
-    end
-  end
-
+  private
   def post_params
     params.require(:post).permit(:title, :body)
   end
