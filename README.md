@@ -32,8 +32,6 @@ After that click Sign In and sign in as a user from the db/seed.rb
 
 Now on the account link you can see the create post link. You can click and create as many posts as you want.
 
-to see all the posts go to  http://localhost:3000/posts .
-
 
 # Authors
 
